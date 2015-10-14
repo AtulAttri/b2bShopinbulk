@@ -1,0 +1,43 @@
+<ion-view view-title="Collections">
+    <ion-content ng-class="{expanded:$scope.isExpanded}">
+        <div class="hero slide-up" style="background-image: url('http://cdn-new-annectos.s3.amazonaws.com/images/bigbanner/puma/MENS.jpg');">
+            <div class="content" style="margin-left: 159px ; bottom:-10px">
+                <div class="avatar" style="background-image: url('img/puma.png');"></div>
+
+            </div>
+        </div>
+        <div class="tabs tabs-dark tabs-icon-top static">
+            <a ui-sref=" app.trending " class="tab-item">
+                <i class="icon ion-arrow-graph-up-right"></i> Trending
+            </a>
+            <a ui-sref="app.enquiry" class="tab-item">
+                <i class="icon ion-email"></i>Enquire
+            </a>
+            <a ui-sref="app.gallery" class="tab-item">
+                <i class="icon ion-images"></i> Categories
+            </a>
+        </div>
+        <!--<h5 class="content padding double-padding-x">Latest</h5>-->
+        <div  class="list animate-fade-slide-in-right" collection-repeat="product in product_lists | filter:filter">
+            <table   style="width: 100% ; border-bottom: 1px solid #666666;">
+                <tr  style="display: inline-block ; border-bottom: 1px solid #666666;width: 100% " >
+                    <td style="width: 40% ; padding-bottom: 15px ; padding-top : 10px !important;">
+                        <a  style="border-bottom: 1px solid #666666;!important;" ng-href="#/app/prod/{{product.id}}">
+                            <img style='width: 110px; height: 130px' ng-src="{{product.image_urls[0].link}}">
+                        </a>
+                    </td>
+
+                    <td style="width: 60% ; padding-bottom: 10px ;  !important;">
+                        <a style="text-decoration: none !important;" ng-href="#/app/prod/{{product.id}}" >
+                            <h5><b style="font-family:'Trebuchet MS', Sans-Serif">Name: </b>{{product.Name}}</h5>
+                            <h5><b style="font-family:'Trebuchet MS', Sans-Serif">Product-Code : </b>{{product.id}}</h5>
+                            <h5><b style="font-family:'Trebuchet MS', Sans-Serif"> MRP : </b>INR {{product.price[0].mrp}}</h5>
+                            <h5><b style="font-family:'Trebuchet MS', Sans-Serif">Price Range:</b> INR {{product.price[0].list}} - {{product.price[3].list}}</h5>
+                        </a>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,64 @@
+<ion-modal-view>
+    <ion-header-bar>
+        <h1 class="title">Enquiry</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="closeLogin()">Close</button>
+        </div>
+    </ion-header-bar>
+    <ion-content style="background-color:#ffffff;">
+        <form  name="frm" ng-submit="sendEnquiry()" style="height: 100%;margin-top: 20px">
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">Name*</span>
+                    <!--<input type="text" ng-model="loginData.username">-->
+     <!--<ion-md-input name="name" placeholder="Name" highlight-color="white" type="text" data-ng-model="enquire.name" required ></ion-md-input>-->
+              <input type="text" placeholder="Name" name="name" class="cutextbox" data-ng-model="enquire.name" required />
+
+                </label>
+                <span class="input-label" ng-show="frm.name.$dirty && frm.name.$error.required"  style="color: #ff0000 ">Required!</span>
+                <label class="item item-input">
+                    <span class="input-label">Mobile*</span>
+                    <input type="number" placeholder="Mobile" name="mobile_no" class="cutextbox" data-ng-model="enquire.mobile_no"   required ng-minlength="10" ng-maxlength="12" >
+
+                    </label>
+
+                <span class="input-label" ng-show="frm.mobile_no.$dirty && frm.mobile_no.$error.required"  style="color: #ff0000 "> Required! </span>
+                <span class="input-label" ng-show="frm.mobile_no.$dirty && frm.mobile_no.$error.minlength" style="color: #ff0000 ">Not a valid mobile no.</span>
+                <span class="input-label" ng-show="frm.mobile_no.$dirty && frm.mobile_no.$error.maxlength" style="color: #ff0000 ">Not a valid mobile no.</span>
+                <label class="item item-input">
+                    <span class="input-label">Email Id*</span>
+                    <!--<input type="text" ng-model="loginData.email_id">-->
+                    <input type="email" placeholder="email"name="email" class="cutextbox" data-ng-model="enquire.email" required/>
+
+                    </label>
+
+                <span class="input-label" ng-show="frm.email.$dirty && frm.email.$error.required"  style="color: #ff0000 ">Required!</span>
+                <span class="input-label" ng-show="frm.email.$dirty && frm.email.$error.email"  style="color: #ff0000 ">not an email!</span>
+                <!--<label class="item item-input">-->
+                    <!--<span class="input-label">City*</span>-->
+                    <!--<input type="text" ng-model="loginData.ue">-->
+                    <!--</label>-->
+                <!--<label class="item item-input">-->
+                <!--<span class="input-label">Company Name*</span>-->
+                    <!--<input type="text" ng-model="loginData.company_name">-->
+                 <!--</label>-->
+                <!--<label class="item item-input">-->
+                    <!--<span class="input-label">Quantity*</span>-->
+                    <!--<input type="text" ng-model="loginData.qty">-->
+                <!--</label>-->
+                <!--<label class="item item-input">-->
+                    <!--<span class="input-label">Size*</span>-->
+                    <!--<input type="text" ng-model="loginData.size">-->
+                <!--</label>-->
+                <!--<label class="item item-input">-->
+                    <!--<span class="input-label">Password</span>-->
+                    <!--<input type="password" ng-model="loginData.password">-->
+                <!--</label>-->
+                <label class="item">
+                    <button style="background-color:#b71c1c" ng-disabled="frm.$invalid" class="button button-block button-positive" type="submit">Send Enquiry</button>
+                </label>
+            </div>
+        </form>
+
+    </ion-content>
+</ion-modal-view>
